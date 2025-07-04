@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Բարի գալուստ RoynexBot 💎")
+    await update.message.reply_text("Привет! RoyNex работает.")
 
 app = ApplicationBuilder().token("8153276855:AAEqgDMBDCsQBwlzIdB7iMtO-g6E1SWwTtg").build()
 app.add_handler(CommandHandler("start", start))
