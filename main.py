@@ -7,7 +7,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Բարև, սա RoynexBot է 🔐")
 
 async def main():
-    token = os.getenv("token")
+    token = os.getenv("TOKEN")
     app = ApplicationBuilder().token(token).build()
 
     app.add_handler(CommandHandler("start", start))
