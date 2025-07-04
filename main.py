@@ -1,10 +1,18 @@
+import os
+import asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет! RoyNex работает.")
+    await update.message.reply_text("Բարև, սա RoynexBot է 🔐")
 
-app = ApplicationBuilder().token("8153276855:AAEqgDMBDCsQBwlzIdB7iMtO-g6E1SWwTtg").build()
-app.add_handler(CommandHandler("start", start))
+async def main():
+    token = os.getenv("8153276855:AAEqgDMBDCsQBwlzIdB7iMtO-g6E1SWwTtg")
+    app = ApplicationBuilder().token(token).build()
 
-app.run_polling()
+    app.add_handler(CommandHandler("start", start))
+
+    await app.run_polling()
+
+if name == '__main__':
+    asyncio.run(main())
