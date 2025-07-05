@@ -1,10 +1,9 @@
 import os
-from telegram.ext import ApplicationBuilder, CommandHandler
 from telegram import Update
-from telegram.ext import ContextTypes
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Բարեւ, սա RoynexBot-ն է 🔐")
+    await update.message.reply_text("Բարև, սա RoynexBot-ն է 🔐")
 
 def main():
     app = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
