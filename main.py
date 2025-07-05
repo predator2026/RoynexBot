@@ -9,10 +9,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def main():
     app = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
     app.add_handler(CommandHandler("start", start))
-    await app.initialize()
-    await app.start()
-    print("Bot запущен")# polling срабатывает на Имена обновлений
-    await asyncio.Event().wait()       # держим процесс в живых
+
+    print("Бот запущен")
+    await app.run_polling()
 
 if __name__ == "__main__":
     asyncio.run(main())
