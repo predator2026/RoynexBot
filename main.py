@@ -11,14 +11,13 @@ logging.basicConfig(
 
 # Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Բարեւ, սա RoynexBot է։ Խնդրում եմ ընտրեք կոճակներից։")
+    await update.message.reply_text("Բարև, սա RoynexBot է։ Ընտրեք կոճակ։")
 
 # Главная функция
-async def main():
-    app = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
-    app.add_handler(CommandHandler("start", start))
-    await app.run_polling()
+def main():
+    application = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
+    application.add_handler(CommandHandler("start", start))
+    application.run_polling()
 
 if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
+    main()
