@@ -1,14 +1,19 @@
 import os
+import asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Բարև, սա RoynexBot-ն է 🔐")
+    await update.message.reply_text('Привет! Я работаю.')
 
-def main():
+async def main():
     app = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
     app.add_handler(CommandHandler("start", start))
-    app.run_polling()
+    await app.initialize()
+    await app.start()
+    print("Bot запущен")
+    await app.updater.start_polling()  # polling срабатывает на Имена обновлений
+    await asyncio.Event().wait()       # держим процесс в живых
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
