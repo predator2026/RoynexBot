@@ -11,8 +11,7 @@ async def main():
     app.add_handler(CommandHandler("start", start))
     await app.initialize()
     await app.start()
-    print("Bot запущен")
-    await app.updater.start_polling()  # polling срабатывает на Имена обновлений
+    print("Bot запущен")# polling срабатывает на Имена обновлений
     await asyncio.Event().wait()       # держим процесс в живых
 
 if __name__ == "__main__":
