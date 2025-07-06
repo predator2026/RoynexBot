@@ -12,8 +12,12 @@ keep_alive()
 import os, json, threading
 from telegram import (Update, InlineKeyboardButton, InlineKeyboardMarkup,
                       InputMediaPhoto)
-from telegram.ext import (ApplicationBuilder, Application, CommandHandler,
-                          CallbackQueryHandler, ContextTypes, filters)
+from telegram.ext import ApplicationBuilder
+
+application = ApplicationBuilder().token(BOT_TOKEN).build()
+application.add_handler(CommandHandler("start", start))
+
+application.run_polling()
 
 # ---------- НАСТРОЙКИ ---------- #
 ADMIN_ID = 8121378603  # кто может /addbalance
