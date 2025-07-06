@@ -203,10 +203,6 @@ def home():
     return "ROYNEX bot is alive!", 200
 
 
-def keep_alive():
-    threading.Thread(target=lambda: app.run(host="0.0.0.0", port=8080)).start()
-
-
 # ---------- MAIN ---------- #
 def main():
     keep_alive()
