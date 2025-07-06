@@ -14,13 +14,13 @@ from telegram import (Update, InlineKeyboardButton, InlineKeyboardMarkup,
                       InputMediaPhoto)
 from telegram.ext import (ApplicationBuilder, Application, CommandHandler,
                           CallbackQueryHandler, ContextTypes, filters)
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Բարի գալուստ RoyNex 📲")
+
 # ---------- НАСТРОЙКИ ---------- #
 ADMIN_ID = 8121378603  # кто может /addbalance
 MAIN_PHOTO = "https://i.imgur.com/T0bvlAM.jpeg"
 PROJECT_URL = "https://roynex.com"
-
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Բարի գալուստ RoyNex 📲")
 REVIEWS_PHOTOS = [
     "https://i.imgur.com/ehnNYY6.jpeg",
     "https://i.imgur.com/qB7FNQw.jpeg",
